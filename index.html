@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>Memuat survei...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <p>Mengarahkan Anda ke survei. Jika tidak berpindah otomatis, muat ulang halaman ini.</p>
+  <script>
+    var A = "https://forms.gle/mKJ4VoWN99ZJwnox6";
+    var B = "https://forms.gle/KCYrieNB8Dxogrwz5";
+    var kunci = "kondisi_survei";
+    var tujuan;
+    try {
+      tujuan = localStorage.getItem(kunci);
+    } catch (e) {}
+    if (!tujuan) {
+      tujuan = Math.random() < 0.5 ? A : B;
+      try { localStorage.setItem(kunci, tujuan); } catch (e) {}
+    }
+    location.replace(tujuan);
+  </script>
+</body>
+</html> 
